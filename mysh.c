@@ -17,7 +17,7 @@ int	read_line(char *line) {
 	printf("mysh$ ");
 
   // 標準入力から1行読み込み
-	if (!fgets(line, MAXLINE, stdin))
+	if (fgets(line, MAXLINE, stdin) == NULL)
 		return (0); // EOFの場合は0を返す
 
   // 改行文字を終端文字に変更
@@ -83,7 +83,7 @@ int	main() {
   // シェルのメインループ
 	while (1) {
     // コマンドライン読み取り（EOFで終了）
-		if (!read_line(line))
+		if (read_line(line) == 0)
 			break;
 
     // コマンドライン解析

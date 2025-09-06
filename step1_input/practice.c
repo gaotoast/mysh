@@ -6,7 +6,7 @@
 int read_line(char *line) {
   printf("mysh$ ");
 
-  if (!fgets(line, MAXLINE, stdin))
+  if (fgets(line, MAXLINE, stdin) == NULL)
     return 0;
 
   /* TODO: 文字列の最後の改行文字を終端文字に変更する */
@@ -21,7 +21,7 @@ int main() {
   /* ヒント: 変数名は line にする */
 
   while (1) {
-    if (!read_line(line))
+    if (read_line(line) == 0)
       break;
 
     printf("入力: %s\n", line);

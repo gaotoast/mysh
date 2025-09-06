@@ -34,7 +34,10 @@ int	main() {
 	char	line[MAXLINE];
 	char	*argv[MAXARGS];
 
-  while (read_line(line)) {
+  while (1) {
+    if (read_line(line) == 0)
+      break;
+
     int argc = parse_line(line, argv);
     printf("コマンド: %s (引数 %d個)\n", argv[0], argc);
   }

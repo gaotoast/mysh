@@ -6,7 +6,7 @@
 int read_line(char *line) {
   printf("mysh$ ");
 
-  if (!fgets(line, MAXLINE, stdin))
+  if (fgets(line, MAXLINE, stdin) == NULL)
     return 0;
 
   line[strcspn(line, "\n")] = '\0';
@@ -17,7 +17,7 @@ int main() {
   char line[MAXLINE];
 
   while (1) {
-    if (!read_line(line))
+    if (read_line(line) == 0)
       break;
 
     printf("入力: %s\n", line);
