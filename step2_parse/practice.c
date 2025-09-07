@@ -4,6 +4,11 @@
 #define MAXLINE 1024
 #define MAXARGS 64
 
+/**
+ * コマンドライン入力を受け取る関数
+ * @param line 入力を格納するバッファ
+ * @return 成功時1、EOF時0
+ */
 int	read_line(char *line) {
 	printf("mysh$ ");
 
@@ -14,6 +19,12 @@ int	read_line(char *line) {
 	return 1;
 }
 
+/**
+ * コマンドライン文字列を解析して引数配列に分割する関数
+ * @param line 解析する文字列
+ * @param argv 引数を格納する配列
+ * @return 引数の数
+ */
 int	parse_line(char *line, char *argv[]) {
 	int argc = 0;
   char *token = strtok(line, " ");
@@ -30,6 +41,9 @@ int	parse_line(char *line, char *argv[]) {
 	return (argc);
 }
 
+/**
+ * メイン関数 - シェルの主要ループ
+ */
 int	main() {
 	char	line[MAXLINE];
 	char	*argv[MAXARGS];
