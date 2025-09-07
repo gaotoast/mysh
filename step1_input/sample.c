@@ -3,6 +3,11 @@
 
 #define MAXLINE 1024
 
+/**
+ * コマンドライン入力を受け取る関数
+ * @param line 入力を格納するバッファ
+ * @return 成功時1、EOF時0
+ */
 int read_line(char *line) {
   printf("mysh$ ");
 
@@ -13,6 +18,9 @@ int read_line(char *line) {
   return 1;
 }
 
+/**
+ * メイン関数 - シェルの主要ループ
+ */
 int main() {
   char line[MAXLINE];
 
